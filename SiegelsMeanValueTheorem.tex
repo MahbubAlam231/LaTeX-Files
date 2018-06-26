@@ -97,7 +97,7 @@
 \section{Introduction}
 In 1944, Siegel~\cite{siegel45} proved the following mean value theorem:
 \[
-    \int\limits_{\mathrm{SL}(n,\mathbb{R}) / \mathrm{SL}(n,\mathbb{Z})} \widehat{f}(\Lambda  ) \, \mathrm{d} \mu (\Lambda  ) = \int_{\mathbb{R}^n}f(x) \, \mathrm{d} x
+    \int\limits_{\mathrm{SL}(n,\mathbb{R}) / \mathrm{SL}(n,\mathbb{Z})} \widehat{f}(\Lambda ) \, \mathrm{d} \mu (\Lambda ) = \int_{\mathbb{R}^n}f(x) \, \mathrm{d} x
 \]
 where $f\in L^1(\mathbb{R}^n )$, $\widehat{f}$ (called the Siegel transform of $f$) is defined as, $\widehat{f}( \Lambda ) = \displaystyle\sum_{0 \neq v \in \Lambda } f(v)$, $\Lambda$ is any unimodular lattice in $\mathbb{R}^{n}$, $\mathrm{SL}(n, \mathbb{R})/ \mathrm{SL}(n, \mathbb{Z})$ is the space of all unimodular lattices and $\mu$ is a probability measure on $\mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z})$.
 
@@ -213,7 +213,7 @@ With $\ell=1$ the above says,
     \int_{F_n} \displaystyle\sum_{\substack{v \in \mathbb{Z}^n \\ v \,\text{primitive}}} f(gv) \, \mathrm{d} \mu (g) = \frac{n-1}{n} \mu (F_{n-1}) \int_{\mathbb{R}^n} f(x) \, \mathrm{d} x
 \end{equation}
 \section{Proof of Siegel's Mean Value Theorem~\ref{smvt} assuming Mean Value Theorem for primitive matrices~\ref{smvtp}}\label{secn1.5}
-%  Beginning of the proof of Siegel's Mean Value Theorem
+% Beginning of the proof of Siegel's Mean Value Theorem
 With $f=\mychi _K$ and $\widehat{\mychi _{K}}'(g)=\#$ primitive vectors of $g \mathbb{Z}^n$ in $K$, (\ref{eq1.4}) implies
 % Equation
 \begin{equation}\label{eq1.5}
@@ -319,6 +319,20 @@ The following proof is due to Siegel~\cite{siegel45}.
     Therefore, under the assumption of the theorem there is a positive measure set of unimodular lattices with no nonzero point in $B$.
 \end{proof}
 
+\section{Action of $\mathrm{SL}(n, \mathbb{Z})$ on $P$}
+$\mathrm{SL}(n, \mathbb{Z})$ acts transitively on $P$ by left-multiplication.
+The stabilizer of $e$ (= first $\ell$ columns of $I_n $) is, ${\mathrm{SL}(n, \mathbb{Z})}_e := \{h \in \mathrm{SL}(n, \mathbb{Z}): he = e\}$.
+Then, $\mathrm{SL}(n, \mathbb{Z}) / {\mathrm{SL}(n, \mathbb{Z})}_e \cong P $.
+For $p \in P$ define ${\mathrm{SL}(n, \mathbb{Z})}_p := \{h \in \mathrm{SL}(n, \mathbb{Z}): he = p\}$.
+
+If $h \in {\mathrm{SL}(n, \mathbb{Z})}_e$, then $h=
+\begin{pmatrix}
+    I_\ell & \eta   \\
+    0      & h'
+\end{pmatrix}
+$, where $\eta$, $h'$ are integer matrices with $|h'|=|h|=1$, i.e., $h' \in \mathrm{SL}(m,\mathbb{Z})$.
+If $h_1 \in {\mathrm{SL}(n, \mathbb{Z})}_p$, then ${\mathrm{SL}(n,\mathbb{Z})}_p = h_1 {\mathrm{SL}(n, \mathbb{Z})}_e$.
+
 \section{New coordinates on a open subset of $\mathrm{GL}^+(n, \mathbb{R})$}\label{secn1.6}
 To prove Mean Value Theorem for primitive matrices~\ref{smvtp}, we want to show first that if $K \subseteq \mathbb{R}^{n \ell }$ is a Borel measurable set then,
 \[
@@ -368,9 +382,9 @@ For example, if $|x_1|= \pm \alpha ^m$, can choose
     \widetilde{x}_1=
     \begin{pmatrix}
         \alpha ^{-1} &   \\
-        & \alpha ^{-1} \\
-        &              & \ddots \\
-        &              &              & \pm \alpha ^{-1}
+        \            & \alpha ^{-1} \\
+        \            &              & \ddots \\
+        \            &              &              & \pm \alpha ^{-1}
     \end{pmatrix}
 \]
 
@@ -417,22 +431,7 @@ We also note that,
 
 The set we are going to calculate volume of in two different ways is a set of the form $[X,Y,A']$.
 
-\section{Action of $\mathrm{SL}(n, \mathbb{Z})$ on $P$}
-$\mathrm{SL}(n, \mathbb{Z})$ acts transitively on $P$ by left-multiplication.
-The stabilizer of $e$ (= first $\ell$ columns of $I_n $) is, ${\mathrm{SL}(n, \mathbb{Z})}_e := \{h \in \mathrm{SL}(n, \mathbb{Z}): he = e\}$.
-Then, $\mathrm{SL}(n, \mathbb{Z}) / {\mathrm{SL}(n, \mathbb{Z})}_e \cong P $.
-For $p \in P$ define ${\mathrm{SL}(n, \mathbb{Z})}_p := \{h \in \mathrm{SL}(n, \mathbb{Z}): he = p\}$.
-
-If $h \in {\mathrm{SL}(n, \mathbb{Z})}_e$, then $h=
-\begin{pmatrix}
-    I_\ell & \eta   \\
-    0      & h'
-\end{pmatrix}
-$, where $\eta$, $h'$ are integer matrices with $|h'|=|h|=1$, i.e., $h' \in \mathrm{SL}(m,\mathbb{Z})$.
-If $h_1 \in {\mathrm{SL}(n, \mathbb{Z})}_p$, then ${\mathrm{SL}(n,\mathbb{Z})}_p = h_1 {\mathrm{SL}(n, \mathbb{Z})}_e$.
-
-\section{Proof of Mean Value Theorem for primitive matrices~\ref{smvtp}}\label{sec1.8}
-%  2 Lemmas
+\section{Measure of sets in $\mathrm{SL}(n,\mathbb{R})$}
 % Lemma
 \begin{lemma}\label{lem1.8.1}
     Let, $f \in L^1(0,1]$ and $G' \subseteq \mathrm{SL}(m, \mathbb{R})$, then
@@ -482,7 +481,8 @@ If $h_1 \in {\mathrm{SL}(n, \mathbb{Z})}_p$, then ${\mathrm{SL}(n,\mathbb{Z})}_p
     \end{align*}
 \end{proof}
 
-%  Beginning of the proof 
+\section{Proof of Mean Value Theorem for primitive matrices~\ref{smvtp}}\label{sec1.8}
+% Beginning of the proof 
 Let $K \subseteq W(\mathbb{R}^{n\ell })$ be Lebesgue measurable, $C= [0, 1)^{\ell m}$ be the unit cube in $\mathbb{R}^{\ell m}$.
 Also let $K'= [K,C,F_m] \subseteq \mathrm{SL}(n, \mathbb{R})$.
 On one hand we know from Lemma~\ref{lem1.8.2} that,
@@ -497,7 +497,7 @@ On the other hand, using right invariance of the Haar measure $\mu$,
     &= \int_{F_n} \sum_{h \in \mathrm{SL}(n, \mathbb{Z})} \mychi _{K'}(g) \, \mathrm{d} \mu (g) \nonumber\\
     &= \int_{F_n} \sum_{p \in P} \sum_{h \in {\mathrm{SL}(n, \mathbb{Z})}_p} \mychi _{K'}(gh) \, \mathrm{d} \mu (g)
 \end{align}
-%  Another Lemma
+
 % Lemma
 \begin{lemma}\label{lem1.8.3}
     (i) $\displaystyle\sum_{h \in {\mathrm{SL}(n, \mathbb{Z})}_e} \mychi _{K'}(gh) = \mychi _K(ge) \,\forall g \in \mathrm{SL}(n, \mathbb{R})$
@@ -558,7 +558,8 @@ On the other hand, using right invariance of the Haar measure $\mu$,
     \end{align*}
 
 \end{proof}
-%  Finishing the proof
+
+% Finishing the proof
 Therefore, using Lemma~\ref{lem1.8.3} from (\ref{eq1.15}) and (\ref{eq1.16}) we get, if $K \subseteq W(\mathbb{R}^{n \ell})$ then,
 \[
     \int_{F_n} \displaystyle\sum_{p \in P} \mychi_{K} (gp) \, \mathrm{d} \mu (g) = \frac{m}{n} \mu (F_m) \lambda (K)
@@ -621,6 +622,7 @@ For $x \in W(\mathbb{R}^{n\ell })$ we have a smooth choice $a_x =
     x_2 & \widetilde{x}_1
 \end{pmatrix}
 \in {\mathrm{GL}^+(n, \mathbb{R})}_x$, as shown in Section~\ref{secn1.6}.
+
 
 % Bibliography
 \bibliographystyle{alpha}

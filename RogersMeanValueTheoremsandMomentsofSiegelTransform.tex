@@ -86,7 +86,6 @@
 \begin{abstract}
     This article is an attempt to understand and rewrite C. A. Rogers' 1955 paper~\cite{rogers55b} in relatively modern language.
     We will also apply it to get theorems about moments of Siegel transform of a function.
-    We will be mainly following~\cite{rogers55b} and~\cite{schmidt58}.
 \end{abstract}
 
 \section{Introduction}
@@ -127,7 +126,7 @@ Let $\mu$ be the Haar measure on $\mathrm{SL}(n,\mathbb{R})$ normalized so that 
 Therefore, from Weil's integration formula we see that $\mu$ gives rise to a $\mathrm{SL}(n,\mathbb{R})$-invariant probability measure on $\mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z})$, which we will also call $\mu$ as there will be no confusion.
 It is also clear from Weil's integration formula that integration over $\mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z})$ with respect to $\mu$ can be viewed as integration over $F_n$ with respect to $\mu$.
 
-\section{Rogers Mean Value over the space of lattices}
+\section{Rogers' Mean Value over the space of lattices}
 Let $\omega > 0$ and $\theta _2, \ldots, \theta _n$ be real numbers.
 Say, $\vartheta = (\theta _2, \ldots, \theta _n)$.
 Define,
@@ -194,17 +193,15 @@ Then $\Lambda (\vartheta , \omega ) = \Theta (\vartheta , \omega )\mathbb{Z}^{n}
 
 Let $\rho : \mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z}) \to \mathbb{C} \cup \{\infty\}$ be a Borel measurable function.
 The maps
-% UnnumberedAlign
-\begin{align*}
-    \iota : C \to & \, \mathrm{SL}(n,\mathbb{R}) \times C \\
-    \vartheta \mapsto & \, (\mathrm{Id}, \Theta (\vartheta, \omega )) \\
-    \newline \\
-    m : \mathrm{SL}(n,\mathbb{R}) &\times C \to  \mathrm{SL}(n,\mathbb{R}) \\
-    (g&, \vartheta ) \mapsto g \Theta \\
-    \newline \\
-    \pi : \mathrm{SL}(n,\mathbb{R}) \to & \, \mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z}) \\
-    &g \mapsto g\mathbb{Z}^{n}
-\end{align*}
+% UnnumberedGather
+\begin{gather*}
+    \iota : C \to \, \mathrm{SL}(n,\mathbb{R}) \times C \\
+    \vartheta \mapsto \, (\mathrm{Id}, \Theta (\vartheta, \omega )) \\
+    m : \mathrm{SL}(n,\mathbb{R}) \times C \to  \mathrm{SL}(n,\mathbb{R}) \\
+    (g, \vartheta ) \mapsto g \Theta \\
+    \pi : \mathrm{SL}(n,\mathbb{R}) \to \, \mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z}) \\
+    g \mapsto g\mathbb{Z}^{n}
+\end{gather*}
 are all continuous.
 Therefore, from the following diagram
 \[
@@ -230,105 +227,6 @@ Where as the \uline{Siegel Mean Value} of such a function is defined as
     \end{split}
 \end{equation}
 
-\section{Main Theorems}
-% Theorem
-\begin{theorem}[Rogers' Mean Value Theorem]\label{rmvt}
-    Let $\rho : \mathbb{R}^{nk} \to [0, \infty]$ be a Borel measurable function, where $1 \leq k \leq n-1$.
-    Then,
-    % AlignedEquation
-    \begin{equation}\label{rmvteq}
-        \begin{split}
-            \int\limits_{\mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z})} & \sum_{X \in \Lambda ^k - \{0\}} \rho (X) \, \mathrm{d} \mu (\Lambda ) = \int_{\mathbb{R}^{nk}} \rho (x) \,  \mathrm{d} x \\
-            & + \sum_{(\sigma ; \tau )} \sum_{q=1}^{\infty}\sum_{D} {\bigg(\frac{e_1}{q} \cdot \frac{e_2}{q} \cdots \frac{e_m}{q} \bigg)}^n \int \cdots \int \rho \bigg(\sum_{i=1}^{m}\frac{d_{i1}}{q} x_i, \ldots , \sum_{i=1}^{m}\frac{d_{ik}}{q} x_i \bigg) \, \mathrm{d} x_1 \cdots \, \mathrm{d} x_m
-        \end{split}
-    \end{equation}
-    both sides perhaps having the value $+\infty$, where on the right the outer sum is over all divisions $(\sigma ; \tau ) = (\sigma _1, \ldots, \sigma _m; \tau _1, \ldots, \tau _{k-m})$ of $\{1, 2, \ldots , k\}$ into two sequences $\sigma _1, \ldots , \sigma _m$ and $\tau _1, \ldots , \tau _{k-m}$, with $1\leq m \leq k-1$ such that
-    % Align
-    \begin{equation}\label{sigmatau}
-        \begin{split}
-            & 1 \leq \sigma _1 < \sigma _2 < \cdots < \sigma _m \leq  k, \\
-            & 1 \leq  \tau _1 < \tau _2 < \cdots < \tau _{k-m} \leq  k, \\
-            & \sigma _i \neq \tau _j, \ \text{for} \  1\leq  i \leq  m, 1\leq  j\leq  k-m,
-        \end{split}
-    \end{equation}
-    where the inner sum is over all $m \times k$ matrices $D$, with integral elements, having highest common factor relatively prime to $q$ and with
-    % AlignedEquation
-    \begin{equation}\label{D}
-        \begin{split}
-            & d_{i \sigma _j} = q \delta _{ij}, \,  1 \leq  i, j \leq  m,\\
-            & d_{i \tau _j} = 0, \ \text{if} \ \tau _j < \sigma _i, 1 \leq  i \leq m , 1\leq  j \leq  k-m,
-        \end{split}
-    \end{equation}
-    and where
-    % UnnumberedAlign
-    \begin{align*}
-        e_i = \gcd (\varepsilon _i, q), \, 1 \leq  i \leq  m,
-    \end{align*}
-    $\varepsilon _1, \ldots , \varepsilon _m$ being the elementary divisors of the matrix $D$.
-
-    If in addition $\rho$ is bounded and have compact support and if also $n \geq  \big[\frac{1}{4} k ^2\big] + 2$, then both sides of (\ref{rmvteq}) are finite.
-\end{theorem}
-
-% Theorem
-\begin{theorem}[Rogers]\label{mst}
-    Let $ \rho : \mathbb{R}^{n} \to [0, \infty]$ be a Borel measurable function.
-    $\widehat{\rho } : \mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z}) \to [0, \infty]$, defined as $\widehat{\rho } (\Lambda ) = \displaystyle\sum_{X \in \Lambda - \{0\}} \rho (X)$ be its Siegel transform and $1 \leq  k \leq n-1$.
-    Then,
-    % AlignedEquation
-    \begin{equation}\label{msteq}
-        \begin{split}
-            \int\limits_{\mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z})} {\big(\widehat{\rho }(\Lambda )\big)}^k \,&  \mathrm{d} \mu (\Lambda ) = \bigg(\int_{\mathbb{R}^{n}} \rho (x) \,  \mathrm{d} x\bigg)^k \\
-            & + \sum_{(\sigma ; \tau )} \sum_{q=1}^{\infty}\sum_{D} {\bigg(\frac{e_1}{q} \cdot \frac{e_2}{q} \cdots \frac{e_m}{q} \bigg)}^n \int \cdots \int \prod_{j=1}^{k}\rho \bigg(\sum_{i=1}^{m}\frac{d_{ij}}{q} x_i\bigg) \, \mathrm{d} x_1 \cdots \, \mathrm{d} x_m
-        \end{split}
-    \end{equation}
-    both sides perhaps having the value $+\infty$, where on the right the outer sum is over all divisions $(\sigma ; \tau ) = (\sigma _1, \ldots, \sigma _m; \tau _1, \ldots, \tau _{k-m})$ of $\{1, 2, \ldots , k\}$ into two sequences $\sigma _1, \ldots , \sigma _m$ and $\tau _1, \ldots , \tau _{k-m}$, with $1\leq m \leq k-1$ such that
-    % UnnumberedAlign
-    \begin{align*}
-        & 1 \leq \sigma _1 < \sigma _2 < \cdots < \sigma _m \leq  k, \\
-        & 1 \leq  \tau _1 < \tau _2 < \cdots < \tau _{k-m} \leq  k, \\
-        & \sigma _i \neq \tau _j, \ \text{for} \ 1 \leq  i \leq  m, 1\leq  j\leq  k-m,
-    \end{align*}
-    where the inner sum is over all $m \times k$ matrices $D$, with integral elements, having highest common factor relatively prime to $q$ and with
-    % AlignedEquation
-    \begin{equation}\label{mstD}
-        \begin{split}
-            & d_{i \sigma _j} = q \delta _{ij}, \, 1 \leq  i, j \leq  m,\\
-            & d_{i \tau _j} = 0, \ \text{if} \ \sigma _j < \tau _i, 1 \leq  i \leq m , 1\leq  j \leq  k-m,
-        \end{split}
-    \end{equation}
-    and where
-    % UnnumberedAlign
-    \begin{align*}
-        e_i = \gcd (\varepsilon _i, q), \, 1 \leq  i \leq  m,
-    \end{align*}
-    $\varepsilon _1, \ldots , \varepsilon _m$ being the elementary divisors of the matrix $D$.
-
-    If in addition $\rho$ is bounded and have compact support and if also $n \geq  \big[\frac{1}{4} k ^2\big] + 2$, then both sides of (\ref{msteq}) are finite.
-\end{theorem}
-
-These theorems were later modified by Schmidt~\cite{schmidt58}.
-
-We write $(\alpha; \beta ) \prec (\sigma ; \tau )$ if $(\alpha ; \beta ) = ( \alpha _1, \ldots, \alpha _m; \beta _1, \ldots, \beta _{k-m})$, $(\sigma ; \tau ) = (\sigma _1, \ldots, \sigma _m; \tau _1, \ldots, \tau _{k-m})$ and $\alpha _1 = \sigma _1, \alpha _2 = \sigma _2, \ldots , \alpha _{\ell - 1} = \sigma _{\ell - 1}, \alpha _\ell < \sigma _\ell  $ for some $\ell \leq m$.
-If $m<k$ and $D$ is a $m \times k$ matrix, we denote by $D(\sigma ; \tau )$ the square submatrix with columns $\sigma _1, \sigma _2, \ldots , \sigma _m$ and let be $\det D(\sigma ; \tau )$ the absolute value of the determinant of $D(\sigma; \tau )$.
-
-% Theorem
-\begin{theorem}[Schmidt]\label{schmvt}
-    Theorem~\ref{rmvt} remains true, if (\ref{D}) is replaced by
-    % AlignedEquation
-    \begin{equation}\label{nD}
-        \begin{split}
-            & D(\sigma ; \tau ) = qI, \\
-            & \det D(\alpha ; \beta ) \leq  \det D (\sigma ; \tau ) \ \forall (\alpha ; \beta ) = (\alpha _1, \ldots, \alpha _m ; \beta _1, \ldots, \beta _{k-m}), \\
-            & \det D(\alpha; \beta ) < \det D(\sigma; \tau ) \ \text{if} \ (\alpha; \beta ) \prec (\sigma ; \tau ).
-        \end{split}
-    \end{equation}
-
-    Further, if $\rho$ is bounded and have compact support, then both sides of (\ref{rmvteq}) are finite.
-\end{theorem}
-
-Same modifications can be the done to Theorem~\ref{mst}.
-Theorem~\ref{schmvt} provides better estimates for the sum in (\ref{rmvteq}), since (\ref{nD}) permits only matrices $D$ with $|d_{ij}| \leq q$.
-
 \section{Relation between Rogers' and Siegel's Mean Values}
 % Theorem
 \begin{theorem}\label{rmveqsmv}
@@ -352,7 +250,7 @@ Theorem~\ref{schmvt} provides better estimates for the sum in (\ref{rmvteq}), si
         \int\limits_{\mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z})} \rho (\Lambda ) \, \mathrm{d} \mu (\Lambda ) = \int_{F_n} \rho (g) \, \mathrm{d} \mu (g)
     \end{align}
 
-    Define functions $\rho _h$ on $\mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z})$ as $\rho _h(\Lambda ) = \text{min} \{\rho (\Lambda ), h\}$, $\forall h \in \mathbb{Z}_+$.
+    Define functions $\rho _h$ on $\mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z})$ as, $\rho _h(\Lambda ) = \text{min} \{\rho (\Lambda ), h\}$, $\forall h \in \mathbb{Z}_+$.
 
     For any non-negative function $f$ on $\mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z})$ using Fubini's theorem and $\mathrm{SL}(n,\mathbb{R})$-invariance of $\mu$ we have
     % Align
@@ -424,6 +322,105 @@ In the special case, when the only restriction on $X_1, \ldots, X_m$ is that the
 \]
 stated by Siegel~\cite{siegel45} without proof.
 It seems likely that the general result could also be proved by Siegel's methods.
+
+\section{Main Theorems}
+% Theorem
+\begin{theorem}[Rogers' Mean Value Theorem]\label{rmvt}
+    Let $\rho : \mathbb{R}^{nk} \to [0, \infty]$ be a Borel measurable function, where $1 \leq k \leq n-1$.
+    Then,
+    % AlignedEquation
+    \begin{equation}\label{rmvteq}
+        \begin{split}
+            \int\limits_{\mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z})} & \sum_{X \in \Lambda ^k - \{0\}} \rho (X) \, \mathrm{d} \mu (\Lambda ) = \int_{\mathbb{R}^{nk}} \rho (x) \,  \mathrm{d} x \\
+            & + \sum_{(\sigma ; \tau )} \sum_{q=1}^{\infty}\sum_{D} {\bigg(\frac{e_1}{q} \cdot \frac{e_2}{q} \cdots \frac{e_m}{q} \bigg)}^n \int \cdots \int \rho \bigg(\sum_{i=1}^{m}\frac{d_{i1}}{q} x_i, \ldots , \sum_{i=1}^{m}\frac{d_{ik}}{q} x_i \bigg) \, \mathrm{d} x_1 \cdots \, \mathrm{d} x_m
+        \end{split}
+    \end{equation}
+    both sides perhaps having the value $+\infty$, where on the right the outer sum is over all divisions $(\sigma ; \tau ) = (\sigma _1, \ldots, \sigma _m; \tau _1, \ldots, \tau _{k-m})$ of $\{1, 2, \ldots , k\}$ into two sequences $\sigma _1, \ldots , \sigma _m$ and $\tau _1, \ldots , \tau _{k-m}$, with $1\leq m \leq k-1$ such that
+    % Align
+    \begin{equation}\label{sigmatau}
+        \begin{split}
+            & 1 \leq \sigma _1 < \sigma _2 < \cdots < \sigma _m \leq  k, \\
+            & 1 \leq  \tau _1 < \tau _2 < \cdots < \tau _{k-m} \leq  k, \\
+            & \sigma _i \neq \tau _j, \ \text{for} \  1\leq  i \leq  m, 1\leq  j\leq  k-m,
+        \end{split}
+    \end{equation}
+    where the inner sum is over all $m \times k$ matrices $D$, with integral elements, having highest common factor relatively prime to $q$ and with
+    % AlignedEquation
+    \begin{equation}\label{D}
+        \begin{split}
+            & d_{i \sigma _j} = q \delta _{ij}, \,  1 \leq  i, j \leq  m,\\
+            & d_{i \tau _j} = 0, \ \text{if} \ \tau _j < \sigma _i, 1 \leq  i \leq m , 1\leq  j \leq  k-m,
+        \end{split}
+    \end{equation}
+    and where
+    % UnnumberedAlign
+    \begin{align*}
+        e_i = \gcd (\varepsilon _i, q), \, 1 \leq  i \leq  m,
+    \end{align*}
+    $\varepsilon _1, \ldots , \varepsilon _m$ being the elementary divisors of the matrix $D$.
+
+    If in addition $\rho$ is bounded and have compact support and if also $n \geq  \big[\frac{1}{4} k ^2\big] + 2$, then both sides of (\ref{rmvteq}) are finite.
+\end{theorem}
+
+% Theorem
+\begin{theorem}[Rogers]\label{mst}
+    Let $ \rho : \mathbb{R}^{n} \to [0, \infty]$ be a Borel measurable function.
+    $\widehat{\rho } : \mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z}) \to [0, \infty]$ defined as, $\widehat{\rho } (\Lambda ) = \displaystyle\sum_{X \in \Lambda - \{0\}} \rho (X)$ be its Siegel transform and $1 \leq  k \leq n-1$.
+    Then,
+    % AlignedEquation
+    \begin{equation}\label{msteq}
+        \begin{split}
+            \int\limits_{\mathrm{SL}(n,\mathbb{R})/\mathrm{SL}(n,\mathbb{Z})} {\big(\widehat{\rho }(\Lambda )\big)}^k \,&  \mathrm{d} \mu (\Lambda ) = \bigg(\int_{\mathbb{R}^{n}} \rho (x) \,  \mathrm{d} x\bigg)^k \\
+            & + \sum_{(\sigma ; \tau )} \sum_{q=1}^{\infty}\sum_{D} {\bigg(\frac{e_1}{q} \cdot \frac{e_2}{q} \cdots \frac{e_m}{q} \bigg)}^n \int \cdots \int \prod_{j=1}^{k}\rho \bigg(\sum_{i=1}^{m}\frac{d_{ij}}{q} x_i\bigg) \, \mathrm{d} x_1 \cdots \, \mathrm{d} x_m
+        \end{split}
+    \end{equation}
+    both sides perhaps having the value $+\infty$, where on the right the outer sum is over all divisions $(\sigma ; \tau ) = (\sigma _1, \ldots, \sigma _m; \tau _1, \ldots, \tau _{k-m})$ of $\{1, 2, \ldots , k\}$ into two sequences $\sigma _1, \ldots , \sigma _m$ and $\tau _1, \ldots , \tau _{k-m}$, with $1\leq m \leq k-1$ such that
+    % UnnumberedAlign
+    \begin{align*}
+        & 1 \leq \sigma _1 < \sigma _2 < \cdots < \sigma _m \leq  k, \\
+        & 1 \leq  \tau _1 < \tau _2 < \cdots < \tau _{k-m} \leq  k, \\
+        & \sigma _i \neq \tau _j, \ \text{for} \ 1 \leq  i \leq  m, 1\leq  j\leq  k-m,
+    \end{align*}
+    where the inner sum is over all $m \times k$ matrices $D$, with integral elements, having highest common factor relatively prime to $q$ and with
+    % AlignedEquation
+    \begin{equation}\label{mstD}
+        \begin{split}
+            & d_{i \sigma _j} = q \delta _{ij}, \, 1 \leq  i, j \leq  m,\\
+            & d_{i \tau _j} = 0, \ \text{if} \ \sigma _j < \tau _i, 1 \leq  i \leq m , 1\leq  j \leq  k-m,
+        \end{split}
+    \end{equation}
+    and where
+    % UnnumberedAlign
+    \begin{align*}
+        e_i = \gcd (\varepsilon _i, q), \, 1 \leq  i \leq  m,
+    \end{align*}
+    $\varepsilon _1, \ldots , \varepsilon _m$ being the elementary divisors of the matrix $D$.
+
+    If in addition $\rho$ is bounded and have compact support and if also $n \geq  \big[\frac{1}{4} k ^2\big] + 2$, then both sides of (\ref{msteq}) are finite.
+\end{theorem}
+
+These theorems were later modified by Schmidt~\cite{schmidt58}.
+
+We write $(\alpha; \beta ) \prec (\sigma ; \tau )$ if $(\alpha ; \beta ) = ( \alpha _1, \ldots, \alpha _m; \beta _1, \ldots, \beta _{k-m})$, $(\sigma ; \tau ) = (\sigma _1, \ldots, \sigma _m; \tau _1, \ldots, \tau _{k-m})$ and $\alpha _1 = \sigma _1, \alpha _2 = \sigma _2, \ldots , \alpha _{\ell - 1} = \sigma _{\ell - 1}, \alpha _\ell < \sigma _\ell  $ for some $\ell \leq m$.
+If $m<k$ and $D$ is a $m \times k$ matrix, we denote by $D(\sigma ; \tau )$ the square submatrix with columns $\sigma _1, \sigma _2, \ldots , \sigma _m$ and let be $\det D(\sigma ; \tau )$ the absolute value of the determinant of $D(\sigma; \tau )$.
+
+% Theorem
+\begin{theorem}[Schmidt]\label{schmvt}
+    Theorem~\ref{rmvt} remains true, if (\ref{D}) is replaced by
+    % AlignedEquation
+    \begin{equation}\label{nD}
+        \begin{split}
+            & D(\sigma ; \tau ) = qI, \\
+            & \det D(\alpha ; \beta ) \leq  \det D (\sigma ; \tau ) \ \forall (\alpha ; \beta ) = (\alpha _1, \ldots, \alpha _m ; \beta _1, \ldots, \beta _{k-m}), \\
+            & \det D(\alpha; \beta ) < \det D(\sigma; \tau ) \ \text{if} \ (\alpha; \beta ) \prec (\sigma ; \tau ).
+        \end{split}
+    \end{equation}
+
+    Further, if $\rho$ is bounded and have compact support, then both sides of (\ref{rmvteq}) are finite.
+\end{theorem}
+
+Same modifications can be the done to Theorem~\ref{mst}.
+Theorem~\ref{schmvt} provides better estimates for the sum in (\ref{rmvteq}), since (\ref{nD}) permits only matrices $D$ with $|d_{ij}| \leq q$.
 
 \section{Few Basic Theorems and Lemmas}
 In this section we investigate the mean value $M(\bar{\rho })$ in the case when $\bar{\rho} (\Lambda ) = \displaystyle\sum_{X_1, \ldots, X_m} \rho (X_1, \ldots, X_m)$ and $X_1, \ldots, X_m$ are restricted to be linearly independent points of $\Lambda$, perhaps satisfying certain auxiliary conditions.
@@ -520,9 +517,9 @@ In this section we investigate the mean value $M(\bar{\rho })$ in the case when 
         \renewcommand\arraystretch{1}
         \begin{bmatrix}
             \omega ^{-n+1}(u^1_1 + \vartheta \cdot \bm{u}_1) & \cdots  & \omega ^{-n+1} ( u^1_m+ \vartheta \cdot \bm{u}_m) \\
-            \omega u^2_1                                            & \cdots  & \omega u^2_m \\
-            \vdots                                                  & \ddots  & \vdots \\
-            \omega u^n_1                                            & \cdots  & \omega u^n_m
+            \omega u^2_1                                     & \cdots  & \omega u^2_m \\
+            \vdots                                           & \ddots  & \vdots \\
+            \omega u^n_1                                     & \cdots  & \omega u^n_m
         \end{bmatrix}
     \end{equation}
 
